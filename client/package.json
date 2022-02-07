@@ -1,0 +1,32 @@
+{
+  "name": "param",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "@vue/cli": "^4.5.13",
+    "axios": "^0.25.0",
+    "core-js": "^3.18.2",
+    "vee-validate": "^4.5.5",
+    "vue": "^3.2.20"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-plugin-eslint": "^4.5.13",
+    "@vue/cli-service": "^4.5.13",
+    "@vue/compiler-sfc": "^3.2.20",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-vue": "^7.19.1",
+    "prettier": "^2.4.1"
+  }
+}
