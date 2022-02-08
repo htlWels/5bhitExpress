@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/login',(req,res,next)=>{
+  console.log('/login ....')
   passport.authenticate('local',{session:true},(err,user,info)=>{
     let jsonResult = {
       error:false,

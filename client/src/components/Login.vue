@@ -65,6 +65,8 @@
 <script>
 import {ref} from 'vue'
 import { Form, Field,ErrorMessage  } from 'vee-validate';
+import axios from 'axios'
+
 
 export default {
     // uriPath: htpp://localhost:3000/passwd?user=seppMaier&password=fcBayern
@@ -84,7 +86,7 @@ setup(props,context) {
         let password=ref('')
         let errorMessage=ref('')
 
-        function processLogin(values) {
+        function processLogin() {
             /*
             let jsonRet = {
                 userExist:true,
@@ -92,19 +94,24 @@ setup(props,context) {
                 class:''
             }
             */
-           // console.log("Process Login mit Parameter values:" + values)
+           console.log("Process Login mit Parameter ")
             axios.post('/login', {
                 user: user.value,
                 password: password.value
             })
             .then(response=> {
                 let data = response.data
-                if (data.error) 
-                    context.emit('loginDone',null)
+                console.log("Login: RetVal " + response.data)
+                if (data.error) {
+                    context.emit('loginDone',data.error)
+                    console.log("Login: Error occured: " + data.error)
+                }
                 else if (!data.userKnown)
-                     context.emit('loginDone','user not known')
+                     context.emit('loginDone','User not known')
                 else if (!data.passwordOK)
-                    context.emit('loginDone','user not known')
+                    context.emit('loginDone','Password not valid')
+                else
+                     context.emit('loginDone','Login done')
                 
             })
             .catch(error=> {
@@ -112,7 +119,9 @@ setup(props,context) {
             });
 
 
-        }
+
+
+        }(req,resp,next)
         /* VALIDATOR BEGIN*/
        
          function validatePassword(value) {

@@ -39,7 +39,14 @@ export default {
    
 
     function loginEnabled(loginDone) {
-      
+      if (loginDone === 'Login done')
+        loginState.value=true
+      else if (loginDone === 'Password not valid') 
+        errorMess.value="Password not valid"
+      else if (loginDone === 'User not known')
+        errorMess.value="User not known"
+      else
+        errorMess.value=loginDone
     }
 
 
