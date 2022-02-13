@@ -22,15 +22,7 @@ const initDB = require('./config/initializeDB')
 var app = express();
 
 /* Mongo Setup */
-
 const MONGO_URL=process.env.MONGO_URL
-
-
-
-
-
-
-
 
 const options = {
   autoIndex: true, // Don't build indexes

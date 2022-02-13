@@ -13,6 +13,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
     "@vue/cli": "^4.5.13",
     "axios": "^0.25.0",
+    "bootstrap-vue": "^2.21.2",
     "core-js": "^3.18.2",
     "vee-validate": "^4.5.5",
     "vue": "^3.2.20"
