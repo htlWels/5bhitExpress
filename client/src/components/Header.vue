@@ -2,8 +2,6 @@
     <div>
         <div id="header">
             <img src ="../assets/htlwels.png"/>
-            <h2>Stundenplan für: </h2>
-            <h3>{{name}}</h3>
         </div>
         <div id="error" v-if="errorMessage !=''">
             <h3>!! Hinweis !!</h3>
@@ -15,10 +13,6 @@
 <script>
 export default {
     props: {
-        name: {
-            type: String,
-            required:true
-        },
         errorMessage: {
             type: String,
             required:false,
