@@ -11,7 +11,7 @@ passport.deserializeUser((id, done) => {
         done(err, user)
     })
 })
-
+ 
 passport.use('local', new LocalStrategy({
         usernameField: 'user',
         passwordField: 'password'
