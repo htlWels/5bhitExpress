@@ -49,5 +49,4 @@ router.get('/sessions', (req, res, next) => {
     }
 })
 
-
 module.exports = router;

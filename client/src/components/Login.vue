@@ -1,11 +1,9 @@
 <template>
 <div class="flexContainer">
     
-        
-
         <Form class="formWrapper" @submit="processLogin" >
             <div class="flexItem">
-                <h1 class="headerFormer">HTL Wels/AHIT 5</h1>
+                <h1 class="headerFormer">HTL Wels/BHIT 5</h1>
             </div>
             <div class="flexItem">
                 
@@ -25,10 +23,10 @@
                     />
                 
             </div>
-            <ErrorMessage name="user" />
+            <!-- <ErrorMessage name="user" />
             <span role="alert" v-if="errorMessage.startsWith('User')">
                    {{ errorMessage}}
-            </span>
+            </span> -->
 
             <div class="flexItem">
                 <font-awesome-icon 
@@ -121,7 +119,7 @@ setup(props,context) {
 
 
 
-        }(req,resp,next)
+        }//(req,resp,next)
         /* VALIDATOR BEGIN*/
        
          function validatePassword(value) {
@@ -141,8 +139,6 @@ setup(props,context) {
 
     }
 }
-
-
     
 }
 </script>

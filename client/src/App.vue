@@ -1,34 +1,50 @@
 <template>
 <div>
     <Header 
-    name="Refr"
-    :errorMessage="errorMess"/>
+    :errorMessage="errorMess"
+    v-if="loginState==false"
+    />
     
-    <Stundenplan 
+    <!-- <Stundenplan 
         v-if="loginState"
       
-    />
+    /> -->
+
+    <NavigationBar
+      v-if="loginState"
+      @showStammdatenVerwaltung="showStammdatenverwaltung"
+      @showSessions="showSessions"
+      @showHtlWels="showHtlWels"
+
+    />  
+
     <Login 
       v-else 
-         @loginDone="loginEnabled" 
-        
+         @loginDone="loginEnabled"   
      />
+
+     <Stammdatenverwaltung
+      v-if="StammdatenverwaltungState && loginState"
+
+      />
     
 </div>
 </template>
 
 <script>
-import Stundenplan from './components/Stundenplan.vue'
+import NavigationBar from './components/NavigationBar.vue'
+import Stammdatenverwaltung from './components/Stammdatenverwaltung.vue'
+//import Stundenplan from './components/Stundenplan.vue'
 import Header from './components/Header.vue'
 import Login from './components/Login.vue'
 import {ref} from 'vue'
 
-
-
 export default {
   name: "App",
   components: {
-    Stundenplan,
+    NavigationBar,
+    Stammdatenverwaltung,
+    //Stundenplan,
     Header,
     Login
   },
@@ -36,7 +52,22 @@ export default {
 
     let errorMess=ref('')
     let loginState = ref(false)
-   
+    let StammdatenverwaltungState = ref(true)
+
+    function showStammdatenverwaltung() {
+      console.log("App: Show Stammdatenverwaltung")
+      StammdatenverwaltungState.value=true
+    }
+
+    function showSessions() {
+      console.log("App: Show Sessions")
+      StammdatenverwaltungState.value=false
+    }
+
+    function showHtlWels() {
+      console.log("App: Show Htl Wels")
+      StammdatenverwaltungState.value=false
+    }
 
     function loginEnabled(loginDone) {
       if (loginDone === 'Login done')
@@ -53,6 +84,11 @@ export default {
     return {
       errorMess,
       loginState,
+      loginEnabled,
+      showStammdatenverwaltung,
+      StammdatenverwaltungState,
+      showSessions,
+      showHtlWels
     }
   }
 };
